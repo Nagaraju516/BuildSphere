@@ -23,10 +23,6 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
               {t('common.tagline')} Connecting land due diligence, architectural blueprints, certified building materials, skilled trade workers, heavy machinery, and post-construction AMC care in one unified super app.
             </p>
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-emerald-950/80 border border-emerald-800/50 text-emerald-300 text-xs font-semibold">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-              <span>Zero-API-Key Architecture: 100% Self-Contained Monolith</span>
-            </div>
           </div>
 
           {/* Module 1 & 2 */}

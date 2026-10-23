@@ -72,6 +72,8 @@ export interface Property {
     locality: string;
     state: string;
     pincode: string;
+    coordinates?: { lat: number; lng: number };
+    surveyNumber?: string;
   };
   facing: 'East' | 'West' | 'North' | 'South' | 'North-East';
   images: string[];

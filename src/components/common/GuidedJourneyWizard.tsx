@@ -26,6 +26,7 @@ import {
 import { useI18n } from '../../i18n';
 import { useAppStore } from '../../store';
 import { Property, Product, Provider } from '../../types';
+import { LandLocationMap } from './LandLocationMap';
 
 export const GuidedJourneyWizard: React.FC = () => {
   const { t, formatCurrency, formatDate } = useI18n();
@@ -49,6 +50,7 @@ export const GuidedJourneyWizard: React.FC = () => {
   const [selectedPlot, setSelectedPlot] = useState<Property>(properties[0]);
   const [completedSteps, setCompletedSteps] = useState<number[]>([1, 2, 3]); // initial completed for demo
   const [actionSuccessMsg, setActionSuccessMsg] = useState<string | null>(null);
+  const [showLandMap, setShowLandMap] = useState<boolean>(false);
 
   // Trigger feedback banner
   const triggerSuccess = (msg: string) => {
@@ -252,15 +254,38 @@ export const GuidedJourneyWizard: React.FC = () => {
               <span className="text-xs font-black uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
                 {t('journey.step1Title')}
               </span>
-              <h3 className="text-xl font-black text-slate-900 mt-2">
-                1. స్థలం పరిశీలన & తక్షణ కొనుగోలు (Land Discovery & Purchase)
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                ధృవీకరించబడిన 7-పాయింట్ లీగల్ చెక్‌లిస్ట్‌తో ఉన్న స్థలాన్ని ఎంచుకోండి. కొనుగోలు చేసిన వెంటనే మీ ప్రాజెక్ట్‌కు లింక్ అవుతుంది.
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-2">
+                <div>
+                  <h3 className="text-xl font-black text-slate-900">
+                    1. స్థలం పరిశీలన & తక్షణ కొనుగోలు (Land Discovery & Purchase)
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1">
+                    ధృవీకరించబడిన లీగల్ అనుమతులు ఉన్న స్థలాన్ని ఎంచుకోండి. కొనుగోలు చేసిన వెంటనే మీ ప్రాజెక్ట్‌కు లింక్ అవుతుంది.
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowLandMap(!showLandMap)}
+                  className="self-start sm:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center space-x-1.5 shadow-sm transition-all flex-shrink-0"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-brand-400" />
+                  <span>{showLandMap ? '⊞ Hide Map & Show Cards' : '🗺️ Open Land Location Map'}</span>
+                </button>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {showLandMap ? (
+              <div className="pt-2 animate-fadeIn">
+                <LandLocationMap
+                  onSelectProperty={(plot) => {
+                    handleSelectPlot(plot);
+                    setShowLandMap(false);
+                  }}
+                />
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {properties.slice(0, 2).map((plot) => {
                 const isSelected = selectedPlot.id === plot.id;
                 return (
@@ -324,6 +349,7 @@ export const GuidedJourneyWizard: React.FC = () => {
                 );
               })}
             </div>
+            )}
 
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <button

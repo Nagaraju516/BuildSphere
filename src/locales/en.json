@@ -30,7 +30,7 @@
     "telugu": "తెలుగు (Telugu)",
     "hindi": "हिन्दी (Hindi)",
     "demoMode": "Demo Mode",
-    "demoNotice": "Running in zero-API-key local simulation mode. No external credentials required.",
+    "demoNotice": "Running in BuildSphere interactive simulation mode.",
     "verified": "Verified",
     "favorites": "Favorites",
     "notifications": "Notifications",

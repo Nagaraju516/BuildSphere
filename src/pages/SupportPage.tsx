@@ -28,7 +28,7 @@ export const SupportPage: React.FC = () => {
   const faqs = [
     {
       q: 'How does BuildSphere verify property land titles before purchase?',
-      a: 'We guide homeowners through a 7-point scrutiny checklist covering registered 30-year link documents, nil-encumbrance certificates (EC Form 15), master plan land-use zoning (R1), and advocate legal search opinions.',
+      a: 'We guide homeowners through a comprehensive legal scrutiny checklist covering registered 30-year link documents, nil-encumbrance certificates (EC Form 15), master plan land-use zoning (R1), and advocate legal search opinions.',
     },
     {
       q: 'Are material prices inclusive of GST and site unloading?',

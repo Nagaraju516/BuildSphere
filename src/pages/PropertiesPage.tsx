@@ -22,6 +22,7 @@ import {
 import { useI18n } from '../i18n';
 import { useAppStore } from '../store';
 import { Property, PropertyType, FloorPlan } from '../types';
+import { LandLocationMap } from '../components/common/LandLocationMap';
 
 export const PropertiesPage: React.FC = () => {
   const { t, formatCurrency } = useI18n();
@@ -35,7 +36,8 @@ export const PropertiesPage: React.FC = () => {
     updateDueDiligenceStatus,
   } = useAppStore();
 
-  const [activeTab, setActiveTab] = useState<'listings' | 'diligence' | 'plans' | 'approvals'>('listings');
+  const [activeTab, setActiveTab] = useState<'listings' | 'map' | 'diligence' | 'plans' | 'approvals'>('listings');
+  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
@@ -90,7 +92,7 @@ export const PropertiesPage: React.FC = () => {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+        <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs font-bold">
           <button
             onClick={() => setActiveTab('listings')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
@@ -98,6 +100,15 @@ export const PropertiesPage: React.FC = () => {
             }`}
           >
             {t('property.allProperties')}
+          </button>
+          <button
+            onClick={() => setActiveTab('map')}
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1.5 ${
+              activeTab === 'map' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <MapPin className="w-3.5 h-3.5" />
+            <span>Land Location Map</span>
           </button>
           <button
             onClick={() => setActiveTab('diligence')}
@@ -126,12 +137,30 @@ export const PropertiesPage: React.FC = () => {
         </div>
       </div>
 
+      {/* TAB: INTERACTIVE LAND LOCATION MAP */}
+      {activeTab === 'map' && (
+        <div className="space-y-6">
+          <LandLocationMap
+            onSelectProperty={(prop) => {
+              setSelectedProperty(prop);
+            }}
+            onViewDueDiligence={(prop) => {
+              setSelectedProperty(prop);
+              setActiveTab('diligence');
+            }}
+            onRequestVisit={(prop) => {
+              handleOpenInquiry(prop);
+            }}
+          />
+        </div>
+      )}
+
       {/* TAB 1: LISTINGS */}
       {activeTab === 'listings' && (
         <div className="space-y-6">
-          {/* Filters Bar */}
+          {/* Filters Bar & View Switcher */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Filter className="w-4 h-4 text-slate-500 mr-1" />
               <span className="text-xs font-bold text-slate-700">{t('property.filterByType')}:</span>
               {(['all', 'plot', 'land', 'residential', 'commercial'] as const).map((type) => (
@@ -148,13 +177,50 @@ export const PropertiesPage: React.FC = () => {
                 </button>
               ))}
             </div>
-            <span className="text-xs font-semibold text-slate-500">
-              Showing {filteredProperties.length} verified listings
-            </span>
+
+            <div className="flex items-center space-x-3">
+              <span className="text-xs font-semibold text-slate-500 hidden sm:inline">
+                {filteredProperties.length} verified listings
+              </span>
+
+              {/* View Mode Toggle: Grid vs Map */}
+              <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    viewMode === 'grid' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  ⊞ Grid View
+                </button>
+                <button
+                  onClick={() => setViewMode('map')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1 ${
+                    viewMode === 'map' ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Map View</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Properties Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {viewMode === 'map' ? (
+            <LandLocationMap
+              onSelectProperty={(prop) => {
+                setSelectedProperty(prop);
+              }}
+              onViewDueDiligence={(prop) => {
+                setSelectedProperty(prop);
+                setActiveTab('diligence');
+              }}
+              onRequestVisit={(prop) => {
+                handleOpenInquiry(prop);
+              }}
+            />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {filteredProperties.map((prop) => {
               const isSaved = currentUser.savedProperties.includes(prop.id);
               return (
@@ -263,6 +329,7 @@ export const PropertiesPage: React.FC = () => {
               );
             })}
           </div>
+          )}
         </div>
       )}
 

@@ -44,7 +44,7 @@ export const AdminPage: React.FC = () => {
         <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-3">
           <div className="flex items-center space-x-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
             <CheckCircle2 className="w-4 h-4" />
-            <span>Zero-API-Key Architecture</span>
+            <span>Self-Contained Architecture</span>
           </div>
           <p className="text-2xl font-black text-slate-900">VERIFIED PASS</p>
           <p className="text-xs text-slate-500">

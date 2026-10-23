@@ -19,6 +19,7 @@ import {
   Shield,
   FileCheck,
   ChevronRight,
+  MapPin,
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { useAppStore } from '../store';
@@ -50,7 +51,7 @@ export const HomePage: React.FC = () => {
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
       to: '/properties',
-      features: ['Search Plots & Land', '7-Point Due Diligence', 'Municipal Sanctions (GHMC/BBMP)', 'Architectural Floor Plans'],
+      features: ['Search Plots & Land', 'Legal Document Verification', 'Municipal Sanctions (GHMC/BBMP)', 'Architectural Floor Plans'],
     },
     {
       id: 2,
@@ -157,28 +158,20 @@ export const HomePage: React.FC = () => {
                 </Link>
 
                 <Link
+                  to="/properties"
+                  className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-colors"
+                >
+                  <MapPin className="w-4 h-4 text-brand-400" />
+                  <span>Explore Land Map</span>
+                </Link>
+
+                <Link
                   to="/materials"
                   className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-colors"
                 >
                   <ShoppingCart className="w-4 h-4" />
                   <span>{t('materials.title')}</span>
                 </Link>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="pt-6 border-t border-slate-800 flex flex-wrap items-center gap-6 text-xs text-slate-400">
-                <div className="flex items-center space-x-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Zero-API-Key Architecture</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <FileCheck className="w-4 h-4 text-brand-400" />
-                  <span>7-Point Due Diligence</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4 text-amber-400" />
-                  <span>28 Sequential Milestones</span>
-                </div>
               </div>
             </div>
 
