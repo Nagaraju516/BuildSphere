@@ -81,10 +81,16 @@ export const Header: React.FC = () => {
             <span className="hidden md:inline text-slate-400">|</span>
             <span className="hidden md:inline text-slate-400">{t('common.demoNotice')}</span>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <span className="text-slate-400 hidden sm:inline">Market: India (Pan-India)</span>
-            <div className="flex items-center space-x-1.5 font-semibold text-brand-400">
+            <div className="flex items-center space-x-1 font-semibold text-brand-400">
               <span>₹ INR</span>
+            </div>
+            <div className="flex items-center space-x-1 pl-2 border-l border-slate-700 text-[11px]">
+              <span className="text-slate-400 hidden sm:inline">భాష / Lang:</span>
+              <button onClick={() => setLanguage('en')} className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${language === 'en' ? 'bg-white text-slate-900' : 'text-slate-400 hover:text-white'}`}>EN</button>
+              <button onClick={() => setLanguage('te')} className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${language === 'te' ? 'bg-brand-500 text-white font-black' : 'text-slate-400 hover:text-white'}`}>తెలుగు</button>
+              <button onClick={() => setLanguage('hi')} className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${language === 'hi' ? 'bg-amber-500 text-white font-black' : 'text-slate-400 hover:text-white'}`}>हिन्दी</button>
             </div>
           </div>
         </div>
@@ -151,44 +157,41 @@ export const Header: React.FC = () => {
                 </kbd>
               </button>
 
-              {/* Language Switcher Dropdown */}
-              <div className="relative">
+              {/* Prominent Direct 3-Language Selector Buttons */}
+              <div className="flex items-center bg-slate-100/90 p-1 rounded-xl border border-slate-200 shadow-2xs">
                 <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-colors"
+                  onClick={() => setLanguage('en')}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                    language === 'en'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200 ring-1 ring-slate-900/10'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                  }`}
+                  title="Switch to English"
                 >
-                  <Globe className="w-4 h-4 text-brand-600" />
-                  <span className="uppercase">{language}</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                  🇬🇧 English
                 </button>
-
-                {isLangMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-fadeIn">
-                    <div className="px-3 py-1 border-b border-slate-100 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                      {t('common.language')}
-                    </div>
-                    {languages.map((l) => (
-                      <button
-                        key={l.code}
-                        onClick={() => {
-                          setLanguage(l.code);
-                          setIsLangMenuOpen(false);
-                        }}
-                        className={`w-full flex items-center justify-between px-3.5 py-2 text-xs text-left transition-colors ${
-                          language === l.code
-                            ? 'bg-brand-50 text-brand-700 font-bold'
-                            : 'text-slate-700 hover:bg-slate-50'
-                        }`}
-                      >
-                        <div>
-                          <p className="font-medium">{l.native}</p>
-                          <p className="text-[10px] text-slate-400">{l.label}</p>
-                        </div>
-                        {language === l.code && <Check className="w-4 h-4 text-brand-600" />}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <button
+                  onClick={() => setLanguage('te')}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                    language === 'te'
+                      ? 'bg-brand-600 text-white shadow-xs font-black'
+                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/50'
+                  }`}
+                  title="తెలుగులోకి మార్చండి"
+                >
+                  🇮🇳 తెలుగు
+                </button>
+                <button
+                  onClick={() => setLanguage('hi')}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                    language === 'hi'
+                      ? 'bg-amber-600 text-white shadow-xs font-black'
+                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/50'
+                  }`}
+                  title="हिन्दी में बदलें"
+                >
+                  🇮🇳 हिन्दी
+                </button>
               </div>
 
               {/* Persona Switcher Dropdown */}

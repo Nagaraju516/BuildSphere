@@ -17,11 +17,13 @@ import {
 import { useI18n } from '../i18n';
 import { useAppStore } from '../store';
 import { ProjectMilestone, MilestoneCategory } from '../types';
+import { GuidedJourneyWizard } from '../components/common/GuidedJourneyWizard';
 
 export const ProjectsPage: React.FC = () => {
   const { t, formatCurrency, formatDate } = useI18n();
   const { project, updateMilestoneProgress } = useAppStore();
 
+  const [viewMode, setViewMode] = useState<'journey' | 'milestones'>('journey');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedMilestone, setSelectedMilestone] = useState<ProjectMilestone | null>(null);
   const [newProgress, setNewProgress] = useState(100);
@@ -135,9 +137,45 @@ export const ProjectsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Category Tabs */}
-      <div className="flex flex-wrap items-center gap-2 bg-white p-3 rounded-2xl border border-slate-200 text-xs font-bold">
-        {categories.map((c) => (
+      {/* View Switcher: Interactive Journey vs 28 Detailed Milestones */}
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-100 p-2 rounded-2xl border border-slate-200">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setViewMode('journey')}
+            className={`px-4 py-2 rounded-xl font-black text-xs transition-all flex items-center space-x-2 ${
+              viewMode === 'journey'
+                ? 'bg-brand-600 text-white shadow-md'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+            }`}
+          >
+            <span>🧭 7-Step Guided Lifecycle</span>
+            <span className="px-1.5 py-0.5 rounded-full bg-brand-700/60 text-[10px] text-brand-100">Step-by-Step</span>
+          </button>
+
+          <button
+            onClick={() => setViewMode('milestones')}
+            className={`px-4 py-2 rounded-xl font-black text-xs transition-all flex items-center space-x-2 ${
+              viewMode === 'milestones'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+            }`}
+          >
+            <span>📑 28 Detailed Milestones Ledger</span>
+          </button>
+        </div>
+
+        <p className="text-xs text-slate-500 pr-2 hidden sm:block">
+          {viewMode === 'journey' ? 'End-to-end interactive simulation from land to move-in' : 'Audited stage-by-stage engineering progress'}
+        </p>
+      </div>
+
+      {viewMode === 'journey' ? (
+        <GuidedJourneyWizard />
+      ) : (
+        <>
+          {/* Category Tabs */}
+          <div className="flex flex-wrap items-center gap-2 bg-white p-3 rounded-2xl border border-slate-200 text-xs font-bold">
+            {categories.map((c) => (
           <button
             key={c.key}
             onClick={() => setActiveCategory(c.key)}
@@ -233,6 +271,8 @@ export const ProjectsPage: React.FC = () => {
           );
         })}
       </div>
+      </>
+      )}
 
       {/* Milestone Update Modal */}
       {selectedMilestone && (

@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { useAppStore } from '../store';
+import { GuidedJourneyWizard } from '../components/common/GuidedJourneyWizard';
 
 export const HomePage: React.FC = () => {
   const { t, formatCurrency } = useI18n();
@@ -250,6 +251,11 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Guided Construction Lifecycle Wizard: Land to Move-In */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <GuidedJourneyWizard />
       </section>
 
       {/* 6 Integrated Modules Grid */}
