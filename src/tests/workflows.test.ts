@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+declare const process: any;
 import {
   initialProperties,
   initialProducts,

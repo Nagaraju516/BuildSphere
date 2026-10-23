@@ -141,7 +141,9 @@ export const ServicesPage: React.FC = () => {
                     <div className="flex items-center space-x-1">
                       <h3 className="font-bold text-slate-900 text-sm">{prov.name}</h3>
                       {prov.isVerified && (
-                        <ShieldCheck className="w-4 h-4 text-emerald-600" title="Verified Professional" />
+                        <span title="Verified Professional">
+                          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                        </span>
                       )}
                     </div>
                     <p className="text-xs text-slate-500 capitalize">{prov.trade.replace('_', ' ')}</p>

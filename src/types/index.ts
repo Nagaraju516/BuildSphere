@@ -8,6 +8,7 @@ export type SupportedLanguage = 'en' | 'te' | 'hi';
 export interface Address {
   id: string;
   street: string;
+  locality?: string;
   landmark?: string;
   city: string;
   district?: string;
@@ -255,6 +256,8 @@ export interface Provider {
   avatar: string;
 }
 
+export type ServiceProvider = Provider;
+
 export interface QuotationRequest {
   id: string;
   userId: string;
@@ -320,6 +323,7 @@ export interface Equipment {
   model: string;
   hourlyRate: number;
   dailyRate: number;
+  dailyRentalRate?: number;
   operatorProvided: boolean;
   availableCount: number;
   city: string;
@@ -386,8 +390,8 @@ export interface Expense {
 
 export interface DemoPaymentTransaction {
   id: string;
-  transactionRef: string;
-  userId: string;
+  transactionRef?: string;
+  userId?: string;
   relatedEntity: 'material_order' | 'booking_deposit' | 'equipment_rental' | 'amc_subscription';
   entityId: string;
   amount: number;
@@ -478,6 +482,7 @@ export interface MaintenanceRequest {
   preferredDate: string;
   status: 'submitted' | 'assigned' | 'in_progress' | 'completed';
   assignedTechnician?: string;
+  technicianName?: string;
   estimatedCost?: number;
   completedAt?: string;
   userRating?: number;
@@ -488,8 +493,10 @@ export interface AMCPackage {
   id: string;
   title: string;
   pricePerYear: number;
+  annualCost?: number;
   includedVisits: number;
   coverage: string[];
+  features?: string[];
   emergencyResponseHours: number;
   description: string;
   isPopular?: boolean;
