@@ -1,10 +1,10 @@
-﻿export const formatIndianRupees = (amount: number, compact: boolean = false): string => {
+export const formatIndianRupees = (amount: number, compact: boolean = false): string => {
   if (compact) {
     if (amount >= 10000000) {
-      return â‚¹  Cr;
+      return `₹ ${(amount / 10000000).toFixed(2)} Cr`;
     }
     if (amount >= 100000) {
-      return â‚¹  L;
+      return `₹ ${(amount / 100000).toFixed(2)} L`;
     }
   }
   return new Intl.NumberFormat('en-IN', {
