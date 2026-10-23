@@ -109,9 +109,6 @@ export const Header: React.FC = () => {
                     <span className="text-xl font-extrabold text-slate-900 tracking-tight">
                       Build<span className="text-brand-600">Sphere</span>
                     </span>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 tracking-wide uppercase">
-                      Super App
-                    </span>
                   </div>
                   <p className="text-[10px] font-medium text-slate-500 hidden sm:block -mt-1">
                     {t('common.tagline')}
