@@ -78,7 +78,7 @@ export const GuidedJourneyWizard: React.FC = () => {
     if (!completedSteps.includes(3)) {
       setCompletedSteps((prev) => [...prev, 3]);
     }
-    triggerSuccess('3BHK వాస్తు ప్లాన్ ఆమోదించబడింది! TS-bPASS భవన నిర్మాణ అనుమతి నంబర్ #BP-1042 జారీ చేయబడింది.');
+    triggerSuccess('3BHK ఆధునిక ఆర్కిటెక్ట్ ప్లాన్ ఆమోదించబడింది! TS-bPASS భవన నిర్మాణ అనుమతి నంబర్ #BP-1042 జారీ చేయబడింది.');
   };
 
   // Step 4: 1-Click Order Materials to Site
@@ -426,7 +426,7 @@ export const GuidedJourneyWizard: React.FC = () => {
                 {t('journey.step3Title')}
               </span>
               <h3 className="text-xl font-black text-slate-900 mt-2">
-                3. వాస్తు ఆధారిత ప్లానింగ్ & మున్సిపల్ అనుమతులు (Floor Plan & Approvals)
+                3. ఆధునిక ఆర్కిటెక్చరల్ ప్లానింగ్ & మున్సిపల్ అనుమతులు (Modern Floor Plan & Approvals)
               </h3>
               <p className="text-xs text-slate-500 mt-1">
                 ఆర్కిటెక్ట్ రూపొందించిన 3BHK నమూనా ప్లాన్ ఆమోదించి TS-bPASS / GHMC మున్సిపల్ భవన అనుమతిని పొందండి.
@@ -437,7 +437,7 @@ export const GuidedJourneyWizard: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
-                    100% వాస్తు ఆమోదిత ప్లాన్
+                    ఆధునిక ఆర్కిటెక్చర్ ఆమోదిత ప్లాన్
                   </span>
                   <h4 className="text-base font-bold text-slate-900 mt-1">
                     3BHK కాంటెంపరరీ డ్యూప్లెక్స్ విల్లా ప్లాన్ (2,450 చ.అ)
@@ -452,8 +452,8 @@ export const GuidedJourneyWizard: React.FC = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs py-2 bg-slate-50 p-3 rounded-xl">
                 <div><span>లివింగ్ హాల్:</span> <strong className="block text-slate-800">16 x 20 అడుగులు</strong></div>
-                <div><span>ఆగ్నేయ కిచెన్:</span> <strong className="block text-slate-800">11 x 12 అడుగులు</strong></div>
-                <div><span>ఈశాన్య పూజ గది:</span> <strong className="block text-slate-800">6 x 7 అడుగులు</strong></div>
+                <div><span>మాడ్యులర్ కిచెన్:</span> <strong className="block text-slate-800">11 x 12 అడుగులు</strong></div>
+                <div><span>హోమ్ ఆఫీస్ / స్టడీ:</span> <strong className="block text-slate-800">6 x 7 అడుగులు</strong></div>
                 <div><span>మాస్టర్ బెడ్‌రూమ్:</span> <strong className="block text-slate-800">14 x 16 అడుగులు</strong></div>
               </div>
 

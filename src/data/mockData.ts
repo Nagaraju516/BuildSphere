@@ -156,7 +156,7 @@ export const initialProperties: Property[] = [
       verified: true,
     },
     highlights: [
-      '100% Vastu Compliant East Facing',
+      'East Facing Corner Plot with 40ft Road',
       'HMDA Final Layout LP No: 000214/LO/Plg/HMDA',
       'Underground Drainage & Water Sump',
       '10 Mins to Outer Ring Road Exit 2',
@@ -311,7 +311,7 @@ export const initialProperties: Property[] = [
 export const initialFloorPlans: FloorPlan[] = [
   {
     id: 'plan-1',
-    title: 'The Vrinda 3BHK Vastu Duplex Villa Plan',
+    title: 'The Vrinda 3BHK Premium Duplex Villa Plan',
     bhk: 3,
     floors: 2,
     plotSize: '30 x 50 ft (1500 Sq.Ft)',
@@ -324,11 +324,11 @@ export const initialFloorPlans: FloorPlan[] = [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
     ],
-    vastuCompliant: true,
+    energyEfficient: true,
     roomBreakdown: [
       { room: 'Living & Double Height Foyer', dimensions: '16 x 20 ft' },
-      { room: 'South-East Agni Modular Kitchen', dimensions: '11 x 12 ft' },
-      { room: 'North-East Puja Room', dimensions: '6 x 7 ft' },
+      { room: 'Modern Modular Island Kitchen', dimensions: '11 x 12 ft' },
+      { room: 'Home Office & Study Room', dimensions: '6 x 7 ft' },
       { room: 'Master Bedroom with Walk-in Wardrobe', dimensions: '14 x 16 ft' },
       { room: 'Children Bedroom with Study Corner', dimensions: '12 x 14 ft' },
       { room: 'Guest Bedroom (Ground Floor)', dimensions: '12 x 13 ft' },
@@ -336,7 +336,7 @@ export const initialFloorPlans: FloorPlan[] = [
     ],
     drawingRevisions: [
       { version: 'v1.0', date: '2026-01-10', description: 'Initial concept architectural layout', fileUrl: '#' },
-      { version: 'v1.2', date: '2026-01-22', description: 'Vastu adjustment to Puja & Master Bed position', fileUrl: '#' },
+      { version: 'v1.2', date: '2026-01-22', description: 'Spatial optimization for cross-ventilation & Master Bed position', fileUrl: '#' },
       { version: 'v2.0', date: '2026-02-05', description: 'Structural column alignment & GHMC municipal set-back compliance', fileUrl: '#' },
     ],
   },
@@ -347,16 +347,16 @@ export const initialFloorPlans: FloorPlan[] = [
     floors: 3,
     plotSize: '40 x 60 ft (2400 Sq.Ft)',
     builtUpAreaSqFt: 4200,
-    style: 'Traditional Vastu',
+    style: 'Sustainable Eco-Villa',
     estimatedCost: 8200000,
     architectName: 'Kalyan Chakravarthy, Chief Architect',
     architectId: 'prov-2',
     images: [
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
     ],
-    vastuCompliant: true,
+    energyEfficient: true,
     roomBreakdown: [
-      { room: 'Central Open-to-Sky Brahmastana Courtyard', dimensions: '14 x 14 ft' },
+      { room: 'Central Open-to-Sky Landscaped Courtyard', dimensions: '14 x 14 ft' },
       { room: 'Formal Drawing Room', dimensions: '18 x 20 ft' },
       { room: 'Open Italian Island Kitchen & Dining', dimensions: '16 x 22 ft' },
       { room: 'Ground Floor Parents Suite', dimensions: '15 x 16 ft' },
@@ -719,7 +719,7 @@ export const initialProviders: Provider[] = [
     rating: 4.9,
     reviewCount: 78,
     indicativeDailyRate: 2500,
-    skills: ['Turnkey Villa Construction', 'RCC Multi-Story Framed Structures', 'Vastu Compliant Building', 'Quality Material Assurance'],
+    skills: ['Turnkey Villa Construction', 'RCC Multi-Story Framed Structures', 'Climate-Resilient Building', 'Quality Material Assurance'],
     portfolio: [
       { title: '4500 Sq.Ft Contemporary Duplex, Jubilee Hills', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600', description: 'Turnkey construction completed in 14 months with imported marble and smart automation.', completedYear: 2025 },
       { title: 'Independent 3BHK Villa, Tellapur', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600', description: 'RCC foundation with thermal insulative Aerocon brickwork.', completedYear: 2026 },
@@ -741,14 +741,14 @@ export const initialProviders: Provider[] = [
     rating: 4.9,
     reviewCount: 62,
     indicativeDailyRate: 3500,
-    skills: ['Architectural 3D Elevation', 'Vastu Shastra Planning', 'Municipal Auto-DCR Compliant Plans', 'Interior Spatial Planning'],
+    skills: ['Architectural 3D Elevation', 'Sustainable Spatial Planning', 'Municipal Auto-DCR Compliant Plans', 'Interior Spatial Planning'],
     portfolio: [
       { title: 'Sustainable Courtyard Villa, Gandipet', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600', description: 'Traditional South Indian courtyard with modern passive solar cooling.', completedYear: 2024 },
     ],
     isVerified: true,
     phone: '+91 99881 22334',
     availability: 'available',
-    bio: 'Registered with Council of Architecture (CA/2014/61208). Crafting climate-resilient, light-filled homes that harmonize modern luxury with Vastu.',
+    bio: 'Registered with Council of Architecture (CA/2014/61208). Crafting climate-resilient, light-filled homes that harmonize modern luxury with structural efficiency.',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150',
   },
   {
@@ -996,7 +996,7 @@ export const initialMilestones: ProjectMilestone[] = [
   {
     id: 'ms-4',
     index: 4,
-    title: 'Architectural Vastu Floor Plans & 3D Elevations',
+    title: 'Architectural Floor Plans & 3D Elevations',
     category: 'pre_construction',
     description: 'Finalizing functional room dimensions, daylight ventilation, and photorealistic 3D exterior visualization.',
     plannedBudget: 120000,

@@ -50,7 +50,7 @@ export const HomePage: React.FC = () => {
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
       to: '/properties',
-      features: ['Search Plots & Land', '7-Point Due Diligence', 'Municipal Sanctions (GHMC/BBMP)', 'Vastu Floor Plans'],
+      features: ['Search Plots & Land', '7-Point Due Diligence', 'Municipal Sanctions (GHMC/BBMP)', 'Architectural Floor Plans'],
     },
     {
       id: 2,

@@ -96,12 +96,12 @@ export interface FloorPlan {
   floors: number;
   plotSize: string; // e.g. "30 x 50 ft"
   builtUpAreaSqFt: number;
-  style: 'Modern Contemporary' | 'Traditional Vastu' | 'Minimalist Villa' | 'Duplex Urban';
+  style: 'Modern Contemporary' | 'Sustainable Eco-Villa' | 'Minimalist Villa' | 'Duplex Urban';
   estimatedCost: number;
   architectName: string;
   architectId: string;
   images: string[];
-  vastuCompliant: boolean;
+  energyEfficient: boolean;
   roomBreakdown: { room: string; dimensions: string }[];
   drawingRevisions: { version: string; date: string; description: string; fileUrl: string }[];
 }

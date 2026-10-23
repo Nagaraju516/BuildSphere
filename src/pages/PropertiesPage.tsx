@@ -363,7 +363,7 @@ export const PropertiesPage: React.FC = () => {
               {t('property.architectServices')}
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Browse Vastu-compliant architectural floor plans designed for Indian plot sizes.
+              Browse contemporary architectural floor plans designed for Indian plot sizes with cross-ventilation.
             </p>
           </div>
 
@@ -378,9 +378,9 @@ export const PropertiesPage: React.FC = () => {
                   <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-600 text-white">
                     {plan.bhk} BHK • {plan.floors} Floors
                   </span>
-                  {plan.vastuCompliant && (
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500 text-white">
-                      100% Vastu Compliant
+                  {plan.energyEfficient && (
+                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-700 text-white">
+                      Eco-Smart & Ventilated
                     </span>
                   )}
                 </div>
