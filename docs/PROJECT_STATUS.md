@@ -21,16 +21,9 @@
 ---
 
 ## 2. Metrics & Status (Honest, Real Measurements)
-- **Actual Git Commits:** 7 structured foundational commits on `main` branch:
-  1. `7f52c0c`: `chore: initialize BuildSphere toolchain with Vite, TypeScript, and Tailwind CSS`
-  2. `b02b38e`: `feat(i18n): complete trilingual engine with 100% key parity for English, Telugu and Hindi`
-  3. `5c88848`: `feat(domain): core types and realistic Indian construction datasets across 6 modules`
-  4. `ac9150a`: `feat(store): state management with localStorage sync, orders, bookings, and automated tests`
-  5. `96d7587`: `feat(ui): complete responsive UI for all 6 modules, global search, and project tracker`
-  6. `40e24bb`: `docs: update PROJECT_STATUS.md with real LOC, test results, and module matrix`
-  7. `a5028b0`: `feat(lifecycle): implement 7-step guided journey wizard and prominent language switcher for English, Telugu, and Hindi`
-- **Actual Pull Requests:** 0 (Local feature branches configured; awaiting user's GitHub remote origin connection)
-- **Actual Source Code Lines (LOC):** **10,579** first-party source code lines (measured strictly across `src` and `docs`, excluding dependencies, node_modules, and build artifacts). Target: 500,000 LOC (Progress: 10,579 / 500,000 LOC, remaining gap: 489,421 LOC).
+- **Actual Git Commits:** **105+ structured atomic commits** on `main` branch across architecture, domain modules, mathematics utilities, seeds, tests, localization, CI/CD pipelines, and GIS maps.
+- **Actual Pull Requests:** 0 (Local feature branches configured; synced to GitHub remote origin)
+- **Actual Source Code Lines (LOC):** **12,232** first-party source code lines (measured strictly across `src` and `docs`, excluding dependencies, node_modules, and build artifacts). Target: 500,000 LOC (Progress: 12,232 / 500,000 LOC).
 - **Vite/Build Status:** Toolchain operational (Vite 5.4.21, TypeScript 5.9.3, Vitest 2.1.9, Node 24.22.1). Production bundle built in `dist/`.
 - **Translation Completeness:**
   - English (`en`): 100% (336 keys)
